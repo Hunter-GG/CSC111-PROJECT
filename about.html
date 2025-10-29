@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Neon cards</title>
+  
+  <!-- Embedded CSS Styles --><style>
+    /* variables */
+    :root{
+      --size-w: 320px;
+      --size-h: 180px;
+      --radius: 18px;
+      --border: 4px;
+      --glow-color-1: #8b3cff; /* purple */
+      --glow-color-2: #00e5ff; /* blue-cyan */
+      --bg-deep-1: #0b0312;
+      --bg-deep-2: #120427;
+      --text: #e8f7ff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    /* base layout */
+    html,body{
+      height:100%;
+      /* Made the background gradient even darker */
+      background: linear-gradient(
+        135deg,
+        #020103 0%, /* Even Darker start */
+        #0a0314 25%,
+        #120427 50%, /* Darker mid-point */
+        #0a0314 75%,
+        #020103 100%  /* Even Darker end */
+      );
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite; /* Added animation */
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      color:var(--text);
+    }
+
+    /* Keyframes for the moving gradient */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* layout for 4 cards */
+    .wrap{
+      display:grid;
+      grid-template-columns: repeat(2, auto);
+      gap:28px;
+      align-items:center;
+      justify-items:center;
+    }
+
+    /* outer gradient border + glow */
+    .neon{
+      padding: var(--border);
+      border-radius: calc(var(--radius) + var(--border));
+      background: linear-gradient(135deg, rgba(139,60,255,0.9), rgba(0,229,255,0.95));
+      filter: saturate(1.1);
+      box-shadow:
+        0 6px 30px rgba(139,60,255,0.18),
+        0 10px 60px rgba(0,229,255,0.10),
+        inset 0 0 40px rgba(255,255,255,0.02);
+      transition: transform .25s ease, box-shadow .25s ease;
+      position: relative; /* required so ::after glow is positioned correctly */
+    }
+
+    /* inner dark card where text sits */
+    .card{
+      width: var(--size-w);
+      height: var(--size-h);
+      border-radius: var(--radius);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 1.25rem;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) padding-box,
+        linear-gradient(135deg, rgba(12,4,26,0.9), rgba(22,4,48,0.75)) ;
+      backdrop-filter: blur(6px);
+      box-shadow:
+        0 6px 18px rgba(6,2,20,0.6),
+        0 0 30px rgba(75,18,160,0.06);
+      font-size:1.05rem;
+      line-height:1.2;
+      letter-spacing:0.2px;
+      user-select: none;
+    }
+
+    /* neon glow that leaks from the border - REMOVED GHOSTING */
+    .neon::after{
+      content:"";
+      position:absolute;
+      pointer-events:none;
+      inset:0;
+      border-radius: calc(var(--radius) + var(--border));
+      /* Removed filter and background to eliminate square ghosting */
+      filter: none;
+      background: none; 
+      opacity:0.0; /* Ensure no residual visibility */
+      mix-blend-mode: normal; /* Reset blend mode if previously used for glow */
+    }
+
+    /* hover/enhance effect */
+    .neon:hover{
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 16px 60px rgba(139,60,255,0.26),
+        0 18px 90px rgba(0,229,255,0.14),
+        inset 0 0 60px rgba(255,255,255,0.02);
+    }
+
+    /* Home button neon effect (Darker) */
+    .home-button {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(80,30,150,0.7), rgba(0,120,150,0.75));
+      box-shadow: 0 0 10px rgba(80,30,150,0.4), 0 0 18px rgba(0,120,150,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000; /* Ensure it stays on top */
+      text-shadow: 0 0 6px rgba(255,255,255,0.6);
+    }
+
+    .home-button:hover {
+      box-shadow: 0 0 20px rgba(80,30,150,0.6), 0 0 30px rgba(0,120,150,0.5), 0 0 40px rgba(80,30,150,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* make cards responsive */
+    @media (max-width:760px){
+      .wrap{ grid-template-columns: 1fr; gap:18px }
+      :root{ --size-w: 92vw; --size-h: 140px }
+      .home-button {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- simple link back to the home page --><a href="index.html" class="home-button">← Home</a>
+
+  <!-- Selected content inserted here --><div class="wrap">
+    <div class="neon"><div class="card">Yassin</div></div>
+    <div class="neon"><div class="card">Mohamed</div></div>
+    <div class="neon"><div class="card">Moazz</div></div>
+    <div class="neon"><div class="card">Marco</div></div>
+  </div>
+</body>
+</html>
+
