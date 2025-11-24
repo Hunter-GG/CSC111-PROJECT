@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC111 PROJECT GROUP 8</title>
+    <style>
+        :root {
+            --terminal-bg: #0d0d0d;
+            --terminal-text: #00ff41; /* Classic Matrix Green */
+            --terminal-glow: #008F11;
+            --card-border: #00ff41;
+            --card-bg: #001a05;
+            --accent: #ffb000; /* Amber for contrast */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Retro CRT Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Subtle flicker animation */
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.95; }
+            20% { opacity: 0.99; }
+            50% { opacity: 0.95; }
+            55% { opacity: 0.9; }
+            60% { opacity: 0.95; }
+            100% { opacity: 0.98; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1; /* Below scanlines */
+            animation: flicker 4s infinite;
+        }
+
+        /* Large Title Styles */
+        h1 {
+            font-size: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--terminal-glow), 0 0 20px var(--terminal-glow);
+            border-bottom: 2px solid var(--terminal-text);
+            padding-bottom: 1rem;
+            width: 100%;
+            max-width: 800px;
+            letter-spacing: 4px;
+        }
+
+        h1::before {
+            content: "> ";
+            color: var(--accent);
+        }
+
+        h1::after {
+            content: "_";
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Cards Grid Layout */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--terminal-text);
+            width: 280px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--terminal-glow);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--terminal-glow), inset 0 0 20px rgba(0, 255, 65, 0.2);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* Retro Button Styles */
+        .retro-btn {
+            background-color: transparent;
+            color: var(--terminal-text);
+            border: 2px solid var(--terminal-text);
+            padding: 10px 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card:hover .retro-btn {
+            background-color: var(--terminal-text);
+            color: var(--terminal-bg);
+            box-shadow: 0 0 10px var(--terminal-glow);
+        }
+
+        .retro-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 320px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Main Title -->
+        <h1>CSC111 PROJECT GROUP 8</h1>
+
+        <div class="cards-grid">
+            
+            <!-- Card 1: Mohamed -->
+            <div class="card">
+                <div class="card-icon">
+                    [1]
+                </div>
+                <h2>Mohamed</h2>
+                <a href="Mohamed/P1 CSS.html" class="retro-btn">View Project</a>
+            </div>
+
+            <!-- Card 2: Moaaz -->
+            <div class="card">
+                <div class="card-icon">
+                    [2]
+                </div>
+                <h2>MOAAZ</h2>
+                <a href="Moaaz/Page1.html" class="retro-btn">View Project</a>
+            </div>
+
+            <!-- Card 3: Placeholder Member -->
+            <div class="card">
+                <div class="card-icon">
+                    [3]
+                </div>
+                <h2>MEMBER 3</h2>
+                <a href="#" class="retro-btn">Coming Soon</a>
+            </div>
+
+            <!-- Card 4: Placeholder Member -->
+            <div class="card">
+                <div class="card-icon">
+                    [4]
+                </div>
+                <h2>MEMBER 4</h2>
+                <a href="#" class="retro-btn">Coming Soon</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
