@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooking Website | Pancakes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base Styles */
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      /* "Picnic Table" Vibe */
+      background-color: #fff8e1;
+      background-image: 
+        linear-gradient(45deg, #ffe0b2 25%, transparent 25%, transparent 75%, #ffe0b2 75%, #ffe0b2),
+        linear-gradient(45deg, #ffe0b2 25%, transparent 25%, transparent 75%, #ffe0b2 75%, #ffe0b2);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      color: #4a4a4a;
+      line-height: 1.8;
+    }
+
+    /* Main Container - The "Recipe Card" look */
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 8px solid #fff;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #ff9800;
+      background-image: radial-gradient(circle at center, #ffa726 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 5px solid #ef6c00;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      font-size: 3rem;
+      text-shadow: 2px 2px 0px #ef6c00;
+    }
+
+    .subtitle {
+      font-family: 'Patrick Hand', cursive; /* Handwritten style */
+      font-size: 1.4rem;
+      margin-top: 10px;
+      opacity: 0.95;
+      color: #fff3e0;
+    }
+
+    /* Content Wrapper */
+    .content {
+      padding: 50px;
+      background: #fff url('cream-paper.png'); /* Local texture file */
+    }
+
+    /* Intro Text */
+    .intro-box {
+      background-color: #fff3e0;
+      border-left: 6px solid #ff9800;
+      padding: 25px;
+      margin-bottom: 40px;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #5d4037;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: #d84315;
+      font-size: 2rem;
+      margin-top: 0;
+      border-bottom: 3px dashed #ffcc80;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      display: inline-block;
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #5d4037;
+      margin-top: 40px;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      border-left: 5px solid #ff9800;
+      padding-left: 15px;
+    }
+
+    /* Image Styling - Updated to Portrait */
+    .recipe-image {
+      display: block; /* Centering helper */
+      width: auto;
+      max-width: 100%;
+      height: 600px; /* Taller height for portrait look */
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 30px auto; /* Centered horizontally */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 5px solid #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .recipe-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* Ingredients List */
+    ul {
+      list-style: none;
+      padding: 0;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    ul li {
+      padding: 12px 0;
+      border-bottom: 1px dashed #ccc;
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: "🥞";
+      font-size: 1.4rem;
+      margin-right: 15px;
+    }
+
+    /* Instructions List */
+    ol {
+      counter-reset: recipe-steps;
+      list-style: none;
+      padding: 0;
+    }
+
+    ol li {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 25px;
+    }
+
+    ol li::before {
+      counter-increment: recipe-steps;
+      content: counter(recipe-steps);
+      position: absolute;
+      left: 0;
+      top: -5px;
+      width: 40px;
+      height: 40px;
+      background-color: #ff9800;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* The "HYPED" Button Styling */
+    .btn-container {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border: none;
+      background: transparent;
+    }
+
+    .hyped-btn {
+      display: inline-block;
+      background-color: #ef6c00; /* Deep Orange */
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 20px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 0 #bf360c; /* 3D effect */
+      border: 2px solid #fff;
+      position: relative;
+      top: 0;
+    }
+
+    .hyped-btn:hover {
+      background-color: #ff9800;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 0 #bf360c;
+    }
+
+    .hyped-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #bf360c;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .content { padding: 25px; }
+      .recipe-image { height: 400px; }
+      h1 { font-size: 2.2rem; }
+      .hyped-btn { padding: 15px 20px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Cooking Masterclass</h1>
+      <div class="subtitle">From our kitchen to yours</div>
+    </header>
+
+    <div class="content">
+      <h2>The Art of Cooking</h2>
+      <div class="intro-box">
+        Cooking is the art of preparing food by combining ingredients and using heat. 
+        It allows us to create delicious meals that bring people together. 
+        Cooking can be simple or creative, but it always makes life more enjoyable.
+      </div>
+
+      <h2>Today's Special: Pancakes 🥞</h2>
+      
+      <p>
+        Pancakes are soft, fluffy, and easy to make. 
+        They are perfect for breakfast or a sweet snack. 
+        You can serve them with honey, chocolate, or fruits.
+      </p>
+
+      <!-- Updated onerror to a portrait pancake image -->
+      <img src="pancake.avif" 
+           alt="Delicious Pancakes" 
+           class="recipe-image"
+           onerror="this.src='https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+
+      <h3>Ingredients Checklist</h3>
+      <ul>
+        <li>1 cup flour</li>
+        <li>1 cup milk</li>
+        <li>1 egg</li>
+        <li>2 spoons of sugar</li>
+        <li>1 spoon of oil</li>
+        <li>Honey or chocolate for topping</li>
+      </ul>
+
+      <h3>Step-by-Step Instructions</h3>
+      <ol>
+        <li>In a bowl, mix flour, sugar, milk, and one egg.</li>
+        <li>Stir until the batter becomes smooth.</li>
+        <li>Heat a pan and pour a small amount of the mixture.</li>
+        <li>Cook both sides until golden brown.</li>
+        <li>Serve with honey or chocolate syrup.</li>
+      </ol>
+
+      <div class="btn-container">
+        <a href="Page2.html" class="hyped-btn">HYPED FOR ANOTHER RECIPE?! ➡️</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
