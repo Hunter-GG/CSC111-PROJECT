@@ -27,6 +27,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             min-height: 100vh;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
         @keyframes gradientBG {
@@ -73,10 +74,43 @@
             text-transform: uppercase;
             color: var(--neon-blue);
             text-shadow: 2px 2px var(--burple-mid);
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Reduced to fit nav row */
             border-bottom: 2px solid var(--burple-light);
             padding-bottom: 20px;
             letter-spacing: 2px;
+        }
+
+         /* Navigation Row Styling */
+        .nav-row {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            /* Added border-bottom per request */
+            border-bottom: 2px solid var(--burple-light);
+            padding-bottom: 20px;
+        }
+        .nav-row a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            padding: 5px 15px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        .nav-row a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        .separator {
+            color: var(--text-color);
+            opacity: 0.5;
         }
 
         /* Unique Style for H4s */
@@ -197,6 +231,15 @@
             animation: pulse 2s infinite;
         }
 
+        /* Button Container in Outro */
+        .outro-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
         /* THE BUTTON */
         .retro-btn {
             background: transparent;
@@ -309,10 +352,16 @@
 
     <header>
         <h1>The "Unhackable" Console:<br>A War Still Ongoing</h1>
+        <!-- Small Nav Row for Main Parts -->
+        <div class="nav-row">
+            <a href="#part1">I</a>
+            <span class="separator">|</span>
+            <a href="#part2">II</a>
+        </div>
     </header>
 
     <!-- SECTION I: Flexbox Layout (Text Left, Image Right) -->
-    <h4>I. The Beginning 2006</h4>
+    <h4 id="part1">I. The Beginning 2006</h4>
     
     <div class="split-layout">
         <div class="split-text">
@@ -336,7 +385,7 @@
 
 
     <!-- SECTION II: Stacked Layout (Text Above, Image Gallery Below) -->
-    <h4>II. 2010 Getting Engineers' Support</h4>
+    <h4 id="part2">II. 2010 Getting Engineers' Support</h4>
     
     <div class="stacked-layout">
         <div class="text-block">
@@ -366,8 +415,11 @@
         <div class="outro-text">
             READY TO VENTURE INTO THE MAIN WAR?!
         </div>
-        <!-- New Retro Button -->
-        <a href="P2 CSS.html" class="retro-btn">Discover More!</a>
+        <!-- Buttons Container -->
+        <div class="outro-buttons">
+            <a href="P2 CSS.html" class="retro-btn">Discover More!</a>
+            <a href="../index.html" class="retro-btn">Wanna head back home?</a>
+        </div>
     </div>
 
     <!-- COPYRIGHT FOOTER -->
