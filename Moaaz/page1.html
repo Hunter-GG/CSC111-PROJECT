@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cooking Website</title>
+  <style>
+   
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0 auto;
+      padding: 20px;
+      padding-bottom: 80px; /* Added space so content isn't hidden behind the fixed button */
+      max-width: 700px;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #ff8c00;
+      text-align: center;
+      border-bottom: 2px solid #ff8c00;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      color: #d2691e; 
+      margin-top: 30px;
+      border-left: 5px solid #d2691e;
+      padding-left: 10px;
+    }
+
+    h3 {
+      color: #555;
+      margin-top: 20px;
+    }
+
+    p {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    img {
+      display: block;
+      margin: 20px auto; 
+      border-radius: 10px; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 100%; 
+      height: auto;
+    }
+
+    ol, ul {
+      background-color: #fff;
+      padding: 20px 20px 20px 40px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    li {
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 5px;
+    }
+    
+    li:last-child {
+        border-bottom: none;
+    }
+
+    /* General Button Styling */
+    button {
+      background-color: #ff8c00; 
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d2691e; 
+    }
+
+    /* Specific Styling for the 'Back Home' Button */
+    #home-btn {
+        position: fixed; /* Sticks it to the screen */
+        bottom: 20px;    /* 20px from bottom */
+        right: 20px;     /* 20px from right */
+        margin: 0;       /* Overrides the 'auto' margin of standard buttons */
+        z-index: 1000;   /* Ensures it stays on top of other content */
+        font-size: 14px; /* Slightly smaller text */
+        padding: 10px 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>COOKING</h1>
+  <h3>Learn about cooking and a special recipe</h3>
+
+  <h2>What is Cooking?</h2>
+  <p>
+    Cooking is the art of preparing food by combining ingredients and using heat. 
+    It allows us to create delicious meals that bring people together. 
+    Cooking can be simple or creative, but it always makes life more enjoyable.
+  </p>
+
+  <h2>Today's Recipe: Pancakes 🥞</h2>
+
+  <img src="pancake.jpg" 
+       alt="Delicious Pancakes" 
+       width="300">
+
+  <p>
+    Pancakes are soft, fluffy, and easy to make. 
+    They are perfect for breakfast or a sweet snack. 
+    You can serve them with honey, chocolate, or fruits.
+  </p>
+
+  <h3>How to Make Pancakes:</h3>
+  <ol>
+    <li>In a bowl, mix flour, sugar, milk, and one egg.</li>
+    <li>Stir until the batter becomes smooth.</li>
+    <li>Heat a pan and pour a small amount of the mixture.</li>
+    <li>Cook both sides until golden brown.</li>
+    <li>Serve with honey or chocolate syrup.</li>
+  </ol>
+
+  <h3>Ingredients:</h3>
+  <ul>
+    <li>1 cup flour</li>
+    <li>1 cup milk</li>
+    <li>1 egg</li>
+    <li>2 spoons of sugar</li>
+    <li>1 spoon of oil</li>
+    <li>Honey or chocolate for topping</li>
+  </ul>
+
+  <button onclick="window.location.href='Page2.html'">CAKE!</button>
+
+  <button id="home-btn" onclick="window.location.href='../index.html'">Wanna head back home?</button>
+
+</body>
+</html>
