@@ -27,6 +27,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             min-height: 100vh;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
         @keyframes gradientBG {
@@ -73,19 +74,55 @@
             text-transform: uppercase;
             color: var(--neon-blue);
             text-shadow: 2px 2px var(--burple-mid);
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Reduced to fit nav row */
             border-bottom: 2px solid var(--burple-light);
             padding-bottom: 20px;
             letter-spacing: 2px;
         }
 
-        /* Unique Style for Headers (h4 and h5) */
+        /* Navigation Row Styling */
+        .nav-row {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            border-bottom: 2px solid var(--burple-light);
+            padding-bottom: 20px;
+        }
+
+        .nav-row a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            padding: 2px 6px; /* Reduced padding to fit text tightly */
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px var(--neon-pink);
+            display: inline-block; /* Ensures box fits content */
+            line-height: 1;
+        }
+
+        .nav-row a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        .separator {
+            color: var(--text-color);
+            opacity: 0.5;
+        }
+
+        /* Unique Style for Headers (h4 and h5) - Updated to match P1 (No Box) */
         h4, h5 {
             font-family: 'Share Tech Mono', monospace;
             color: var(--neon-pink);
             background: linear-gradient(90deg, rgba(106, 13, 173, 0.2), transparent);
             padding: 10px 20px;
             border-left: 5px solid var(--neon-pink);
+            /* Removed full border box */
             margin-top: 40px;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -95,7 +132,11 @@
         }
 
         h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.3rem; border-left-color: var(--neon-blue); color: var(--neon-blue); }
+        h5 { 
+            font-size: 1.3rem; 
+            border-left-color: var(--neon-blue); /* Distinct color for sub-headers */
+            color: var(--neon-blue); 
+        }
 
         p {
             line-height: 1.6;
@@ -350,10 +391,21 @@
 
 <div class="container">
 
-    <h1>WE ARE ATTACKING, NO RETREAT!</h1>
+    <header>
+        <h1>WE ARE ATTACKING, NO RETREAT!</h1>
+        
+        <!-- Small Nav Row for Main Parts -->
+        <div class="nav-row">
+            <a href="#part3">III</a>
+            <span class="separator">|</span>
+            <a href="#part4">IV</a>
+            <span class="separator">|</span>
+            <a href="#part5">V</a>
+        </div>
+    </header>
 
     <!-- SECTION III P1 -->
-    <h4>III. P1: Early 2011 The Rise of JTAG</h4>
+    <h4 id="part3">III. P1: Early 2011 The Rise of JTAG</h4>
     <p>
         Following the initial breakthroughs with the Kamikaze exploit, the modding community made significant strides that started back in 2008 with the introduction of the JTAG (Joint Test Action Group) exploit. This method allowed for permanent modifications to the Xbox 360's kernel, enabling users to run unsigned code and homebrew applications without the need for temporary workarounds, mainly making games region free as the console was region locked in addition to having the option to play disc copies without the disc.<br><br>
         The JTAG exploit was mainly designed to load the exploit's code at the booting process, therefore injecting the exploit's code before the hypervisor even loads to mark the first ever permanent softmod for the console, in addition to being the first true weapon that gave us full control of the system.<br><br>
@@ -415,7 +467,7 @@
 
 
     <!-- SECTION IV P1 -->
-    <h4>IV. P1: LATE 2011. RGH COMES IN ACTION</h4>
+    <h4 id="part4">IV. P1: LATE 2011. RGH COMES IN ACTION</h4>
     <p> 
         The RGH (Reset Glitch Hack) has 4 main revisions: The RGH 1, RGH 1.2, RGH 2. Being mainly soldered mod chips that helped in glitching the CPU by a sophisticated process that used to run unsigned code at boot by making a persistent reboot attempt in a short spans, literally measured in milliseconds, till the cpu loaded the unsigned code before the hypervisor even loaded, enabling the hypervisor to ignore all unsigned code and bypassing all checks. <br><br>
         The RGH is similar to the JTAG but with a different approach, a hardware one, mainly making it work on newer consoles that had the JTAG exploit patched, unleashing the hope to our patched xbox 360s.
@@ -460,7 +512,7 @@
 
 
     <!-- SECTION V -->
-    <h4>V. 2025 THE WAR IS STILL ONGOING</h4>
+    <h4 id="part5">V. 2025 THE WAR IS STILL ONGOING</h4>
     <p>
         The war for the "Unhackable" console is still ongoing, with new exploits and methods being developed by the modding community. The RGH and JTAG exploits have paved the way for further innovations, allowing users to unlock the full potential of their Xbox 360 consoles. <br><br>
         As Microsoft continues to release updates and patches, the modding community remains resilient, constantly finding new ways to bypass security measures and enhance the user experience. The battle between console manufacturers and modders is a testament to the ingenuity and determination of the gaming community, proving that no system is truly unhackable. <br><br>
@@ -481,7 +533,7 @@
 
     <!-- OUTRO -->
     <div class="outro-container">
-        <div class="outro-text">The War Will Never End. The War Of Truly Owning Something Is Still Ongoing</div>
+        <div class="outro-text">The War Will Never End. The War Of Truly Owning Something Is Still Ongoing.</div>
         <div class="outro-text">Thanks For Tuning In!</div>
     </div>
 
@@ -490,9 +542,15 @@
         &copy; All rights reserved to their respectful owners, in addition to this CSC111 Project being only dedicated to Nile University in addition to being made for Educational Purpouses only. <br> Mohamed.
     </div>
 
+    <!-- NAVIGATION BUTTONS -->
+    <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+        <a href="P1 CSS.html" class="retro-btn">Back to Page I</a>
+        <a href="../index.html" class="retro-btn">Wanna head back home?</a>
+    </div>
+
 </div>
 
-<!-- Player Script I KNOW DOCTOR JUST WANTED SOMETHING FANCY AA -->
+<!-- Player Script -->
 <script>
     function togglePlay() {
         const video = document.getElementById('sonusVideo');
