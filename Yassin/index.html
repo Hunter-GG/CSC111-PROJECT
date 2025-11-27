@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Hobby: Gaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        }
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.5);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ff4b2b;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .content img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #ff4b2b;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.7);
+        }
+        /* Style for the original Right Button */
+        .button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #00c6ff;
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #0072ff;
+            color: #fff;
+        }
+        /* New Style for Left Button */
+        .button-left {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #00c6ff; /* Matches existing button theme */
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .button-left:hover {
+            background: #0072ff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gaming: My Favorite Hobby</h1>
+    </header>
+    <nav>
+        <a href="#why-gaming">Why I Game</a>
+        <a href="#favorite-genres">Favorite Genres</a>
+        <a href="#gaming-life">Gaming Lifestyle</a>
+    </nav>
+    <div class="content">
+        <section id="why-gaming" class="section">
+            <h2>Why I Game</h2>
+            <p>Gaming lets me escape into immersive worlds, challenge myself, and connect with friends online. It's a mix of strategy, skill, and creativity that keeps me engaged for hours.</p>
+        </section>
+          
+        <section id="favorite-genres" class="section">
+            <h2>Favorite Genres</h2>
+            <p>I enjoy RPGs for their storytelling, shooters for their fast-paced action, and indie games for unique experiences. Every genre offers something different.</p>
+            <img src="Genre.jpg" alt="Game genres">
+        </section>
+        <section id="gaming-life" class="section">
+            <h2>Gaming Lifestyle</h2>
+            <p>From streaming my gameplay to attending gaming events, gaming is more than a hobby—it's a community. It inspires creativity and even teaches problem-solving skills.</p>
+            <img src="LifeStyle.jpg" alt="Gaming lifestyle">
+        </section>
+    </div>
+    
+    <a class="button" href="gaming-world.html">Go to My Gaming World</a>
+    
+    <a class="button-left" href="../index.html">Wanna head back home?</a>
+
+    <footer>
+        &copy; 2025 Gaming Enthusiast
+    </footer>
+</body>
+</html>
