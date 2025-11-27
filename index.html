@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSC111 PROJECT GROUP 8</title>
+    <title>CSC111 TEAM 8</title>
     <style>
         :root {
             --terminal-bg: #0d0d0d;
@@ -27,6 +27,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center; /* Center vertically for home page */
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -65,8 +66,8 @@
         }
 
         .container {
-            width: 100%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1000px;
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -78,15 +79,13 @@
         /* Large Title Styles */
         h1 {
             font-size: 3rem;
-            margin-top: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             text-align: center;
             text-transform: uppercase;
             text-shadow: 0 0 10px var(--terminal-glow), 0 0 20px var(--terminal-glow);
             border-bottom: 2px solid var(--terminal-text);
             padding-bottom: 1rem;
             width: 100%;
-            max-width: 800px;
             letter-spacing: 4px;
         }
 
@@ -95,98 +94,77 @@
             color: var(--accent);
         }
 
-        h1::after {
-            content: "_";
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* Cards Grid Layout */
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            width: 100%;
-        }
-
-        /* Individual Card Styles */
-        .card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--terminal-text);
-            width: 280px;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 5px var(--terminal-glow);
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--terminal-glow), inset 0 0 20px rgba(0, 255, 65, 0.2);
-            border-color: var(--accent);
-        }
-
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
+        /* Introduction Text Styling */
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
             text-align: center;
+            margin-bottom: 4rem;
+            text-shadow: 0 0 5px var(--terminal-glow);
+            max-width: 800px;
         }
 
-        /* Retro Button Styles */
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Retro Button Styles (Larger for Home) */
         .retro-btn {
             background-color: transparent;
             color: var(--terminal-text);
             border: 2px solid var(--terminal-text);
-            padding: 10px 20px;
+            padding: 1.5rem 3rem;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
             text-transform: uppercase;
             transition: all 0.2s;
-            width: 100%;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
         }
 
-        .card:hover .retro-btn {
+        .retro-btn:hover {
             background-color: var(--terminal-text);
             color: var(--terminal-bg);
-            box-shadow: 0 0 10px var(--terminal-glow);
+            box-shadow: 0 0 20px var(--terminal-glow);
+            border-color: var(--accent);
         }
 
         .retro-btn:active {
             transform: scale(0.95);
         }
 
+        /* Blinking cursor at the end of text */
+        .cursor::after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+            color: var(--terminal-text);
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
-                margin-top: 1rem;
-                margin-bottom: 2rem;
             }
-            
-            .card {
-                width: 100%;
-                max-width: 320px;
-                height: 300px;
+            .intro-text {
+                font-size: 1rem;
+            }
+            .retro-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -195,50 +173,20 @@
 
     <div class="container">
         <!-- Main Title -->
-        <h1>CSC111 PROJECT GROUP 8</h1>
+        <h1>CSC111 TEAM 8's PROJECT</h1>
 
-        <div class="cards-grid">
-            
-            <!-- Card 1: Mohamed -->
-            <div class="card">
-                <div class="card-icon">
-                    [1]
-                </div>
-                <h2>Mohamed<br><br>
-                251002129
-                </h2>
-                <a href="Mohamed/P1 CSS.html" class="retro-btn">Xbox 360 Exploiting</a>
-            </div>
-
-            <!-- Card 2: Moaaz -->
-            <div class="card">
-                <div class="card-icon">
-                    [2]
-                </div>
-                <h2>MOAAZ<br><br>
-                251000933</h2>
-                <a href="Moaaz/Page1.html" class="retro-btn">Favourite Food Recipes</a>
-            </div>
-
-            <!-- Card 3: Placeholder Member -->
-            <div class="card">
-                <div class="card-icon">
-                    [3]
-                </div>
-                <h2>MEMBER 3</h2>
-                <a href="#" class="retro-btn">Coming Soon</a>
-            </div>
-
-            <!-- Card 4: Placeholder Member -->
-            <div class="card">
-                <div class="card-icon">
-                    [4]
-                </div>
-                <h2>MEMBER 4</h2>
-                <a href="#" class="retro-btn">Coming Soon</a>
-            </div>
-
+        <!-- Introduction Paragraphs -->
+        <div class="intro-text">
+            <p>
+                Welcome everyone, <span class="highlight">Team 8</span> has arrived with multiple and unique hobbies, not just that?! to entertain all of the viewers too! OH, not to forget, this project was done under <span class="highlight">Dr. Donia's</span> supervision in addition to the CSC111 department.
+            </p>
+            <p class="cursor">
+                We are team 8 and ready to introduce our favourite hobbies.
+            </p>
         </div>
+
+        <!-- Call to Action Button -->
+        <a href="About.html" class="retro-btn">Ready to dive into the project?</a>
     </div>
 
 </body>
