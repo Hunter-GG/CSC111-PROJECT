@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gaming World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #0f2027;
+            color: #fff;
+            overflow-x: hidden;
+            /* Added padding at the bottom so the cards don't get covered by the footer/buttons */
+            padding-bottom: 60px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 10px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+        }
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 700px; 
+            margin: 20px auto; 
+            padding: 0 20px;
+            align-items: start; 
+        }
+        .game-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto; 
+            display: block;
+        }
+        .game-card h3 {
+            padding: 10px;
+            margin: 0;
+            font-size: 1.1rem;
+            color: #00ffff;
+            text-align: center;
+        }
+        .game-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,255,255,0.5);
+        }
+        /* Buttons */
+        .button, .button-left {
+            position: fixed;
+            bottom: 30px; /* Moved up slightly to clear the smaller footer */
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            z-index: 10; /* Ensures buttons are clickable */
+        }
+
+        .button {
+            right: 20px;
+            background: #ff416c;
+            color: #fff;
+        }
+        .button:hover {
+            background: #ff4b2b;
+        }
+
+        .button-left {
+            left: 20px;
+            background: #ff416c;
+            color: #fff;
+        }
+        .button-left:hover {
+            background: #ff4b2b;
+        }
+
+        footer {
+            text-align: center;
+            /* Reduced padding significantly */
+            padding: 5px;
+            /* Reduced font size */
+            font-size: 0.7rem;
+            background: rgba(0,0,0,0.8);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Gaming World</h1>
+    </header>
+    <div class="gallery">
+        <div class="game-card">
+            <img src="Epic rpg adventures.jpg" alt="RPG Game">
+            <h3>Epic RPG Adventures</h3>
+        </div>
+        <div class="game-card">
+            <img src="Call of duty.jpg" alt="Shooter Game">
+            <h3>Fast-Paced Shooters</h3>
+        </div>
+        <div class="game-card">
+            <img src="indie game.jpg" alt="Indie Game">
+            <h3>Creative Indie Games</h3>
+        </div>
+        <div class="game-card">
+            <img src="Gamer.jpg" alt="Streaming">
+            <h3>Streaming My Gameplay</h3>
+        </div>
+    </div>
+    
+    <a class="button" href="index.html">Back to Gaming Info</a>
+
+    <a class="button-left" href="../index.html">Wanna head back home?</a>
+
+    <footer>
+        &copy; 2025 Gaming Enthusiast
+    </footer>
+</body>
+</html>
