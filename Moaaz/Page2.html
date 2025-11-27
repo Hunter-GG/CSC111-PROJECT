@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Birthday Fruit Cake</title>
+
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0 auto;
+          padding: 20px;
+          padding-bottom: 80px; /* Added space so content isn't hidden behind the fixed button */
+          max-width: 700px;
+          background-color: #f4f4f4;
+          color: #333;
+          line-height: 1.6;
+        }
+    
+        h1 {
+          color: #ff8c00;
+          text-align: center;
+          border-bottom: 2px solid #ff8c00;
+          padding-bottom: 10px;
+        }
+    
+        h2 {
+          color: #d2691e; 
+          margin-top: 30px;
+          border-left: 5px solid #d2691e;
+          padding-left: 10px;
+        }
+    
+        h3 {
+          color: #555;
+          margin-top: 20px;
+        }
+    
+        p {
+          background-color: #fff;
+          padding: 15px;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    
+        img {
+          display: block;
+          margin: 20px auto; 
+          border-radius: 10px; 
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          max-width: 100%; 
+          height: auto;
+        }
+    
+        ol, ul {
+          background-color: #fff;
+          padding: 20px 20px 20px 40px;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    
+        li {
+          margin-bottom: 10px;
+          border-bottom: 1px dotted #ccc;
+          padding-bottom: 5px;
+        }
+        
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /* General Button Styling */
+        button {
+          background-color: #ff8c00; 
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 5px;
+          font-size: 16px;
+          font-family: inherit;
+          cursor: pointer;
+          display: block;
+          margin: 30px auto;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          transition: background-color 0.3s;
+        }
+
+        button:hover {
+          background-color: #d2691e; 
+        }
+
+        /* Specific Styling for the 'Back Home' Button */
+        #home-btn {
+            position: fixed; /* Sticks it to the screen */
+            bottom: 20px;    /* 20px from bottom */
+            right: 20px;     /* 20px from right */
+            margin: 0;       /* Overrides the 'auto' margin of standard buttons */
+            z-index: 1000;   /* Ensures it stays on top of other content */
+            font-size: 14px; /* Slightly smaller text */
+            padding: 10px 15px;
+        }
+    
+      </style>
+
+</head>
+<body>
+
+    <h1>🎂 Birthday Fruit Cake</h1>
+
+    <p>
+        This is a fruit birthday cake made with soft cream and pink cream. 
+        It is topped with strawberries, mango slices, cherries, and grapes, 
+        with sprinkles on top.
+    </p>
+
+    <img src="cake.jpg" alt="Birthday Fruit Cake">
+
+    <h2>Ingredients</h2>
+    <ul>
+        <li>Cream</li>
+        <li>Pink cream</li>
+        <li>Strawberries</li>
+        <li>Mango slices</li>
+        <li>Cherries</li>
+        <li>Grapes</li>
+        <li>Vanilla sponge cake</li>
+    </ul>
+
+    <h2>How to Make It</h2>
+    <ol>
+        <li>Bake a vanilla cake and let it cool.</li>
+        <li>Cover the cake with cream.</li>
+        <li>Add pink cream on top.</li>
+        <li>Add fruits: strawberries, mango, cherries, grapes.</li>
+        <li>Add sprinkles.</li>
+        <li>Serve and enjoy!</li>
+    </ol>
+    
+    <button onclick="window.location.href='page1.html'">PANCAKE!</button>
+
+    <button id="home-btn" onclick="window.location.href='../index.html'">Wanna head back home?</button>
+
+</body>
+</html>
