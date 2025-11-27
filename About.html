@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC111 PROJECT GROUP 8</title>
+    <style>
+        :root {
+            --terminal-bg: #0d0d0d;
+            --terminal-text: #00ff41; /* Classic Matrix Green */
+            --terminal-glow: #008F11;
+            --card-border: #00ff41;
+            --card-bg: #001a05;
+            --accent: #ffb000; /* Amber for contrast */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Retro CRT Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Subtle flicker animation */
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.95; }
+            20% { opacity: 0.99; }
+            50% { opacity: 0.95; }
+            55% { opacity: 0.9; }
+            60% { opacity: 0.95; }
+            100% { opacity: 0.98; }
+        }
+
+        .container {
+            width: 95%; 
+            max-width: 1600px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1; /* Below scanlines */
+            animation: flicker 4s infinite;
+        }
+
+        /* Large Title Styles */
+        h1 {
+            font-size: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--terminal-glow), 0 0 20px var(--terminal-glow);
+            border-bottom: 2px solid var(--terminal-text);
+            padding-bottom: 1rem;
+            width: 100%;
+            max-width: 800px;
+            letter-spacing: 4px;
+        }
+
+        h1::before {
+            content: "> ";
+            color: var(--accent);
+        }
+
+        h1::after {
+            content: "_";
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Cards Grid Layout */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--terminal-text);
+            width: 260px;
+            min-height: 420px; /* Increased height to fit description boxes */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Spaced out elements */
+            align-items: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--terminal-glow);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--terminal-glow), inset 0 0 20px rgba(0, 255, 65, 0.2);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .student-id {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* NEW: Boxed Description Style */
+        .desc-box {
+            border: 1px dashed var(--terminal-text);
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            text-align: center;
+            background: rgba(0, 255, 65, 0.05);
+            width: 100%;
+            flex-grow: 1; /* Allows box to fill available space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover .desc-box {
+            border-color: var(--accent);
+            background: rgba(255, 176, 0, 0.05);
+        }
+
+        /* Retro Button Styles */
+        .retro-btn {
+            background-color: transparent;
+            color: var(--terminal-text);
+            border: 2px solid var(--terminal-text);
+            padding: 10px 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card:hover .retro-btn {
+            background-color: var(--terminal-text);
+            color: var(--terminal-bg);
+            box-shadow: 0 0 10px var(--terminal-glow);
+        }
+
+        .retro-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 320px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Main Title -->
+        <h1>CSC111 PROJECT GROUP 8</h1>
+
+        <div class="cards-grid">
+            
+            <!-- Card 1: Mohamed -->
+            <div class="card">
+                <div class="card-icon">[MOHAMED]</div>
+                <div class="student-id">251002129</div>
+                
+                <div class="desc-box">
+                    Ahh The Exploiting Enthusiast,<br>
+                    Give Him Anything, He Will Mod It..
+                </div>
+
+                <a href="Mohamed/P1 CSS.html" class="retro-btn">Xbox 360 Exploiting</a>
+            </div>
+
+            <!-- Card 2: Moaaz -->
+            <div class="card">
+                <div class="card-icon">[MOAAZ]</div>
+                <div class="student-id">251000933</div>
+
+                <div class="desc-box">
+                    Our little Chef,<br>
+                    Loves Eating In Addition To New Recipes.
+                </div>
+
+                <a href="Moaaz/Page1.html" class="retro-btn">Favourite Food Recipes</a>
+            </div>
+
+            <!-- Card 3: Marco -->
+            <div class="card">
+                <div class="card-icon">[MARCO]</div>
+                <div class="student-id">251002407</div>
+
+                <div class="desc-box">
+                    Football Enthusiast,<br>
+                    Loves Playing and Watching Football.
+                </div>
+
+                <a href="Marco/page1.html" class="retro-btn">FOOTBALL!</a>
+            </div>
+
+            <!-- Card 4: Yassin -->
+            <div class="card">
+                <div class="card-icon">[YASSIN]</div>
+                <div class="student-id">251001984</div>
+
+                <div class="desc-box">
+                    Our Mischievous Gamer,<br>
+                    Been Gaming Since He Was A Kid.
+                </div>
+
+                <a href="Yassin/index.html" class="retro-btn">Gaming, a Hobby!</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
